@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nutritionWG"
+        android:title="Nutrition"/>
+    <!--        android:icon="@drawable/ic_algorithm"/>-->
+    <item
+        android:id="@+id/workoutsWG"
+        android:title="Workouts"/>
+    <!--        android:icon="@drawable/ic_course"/>-->
+
+</menu>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserChoice">
+
+    <CheckBox
+        android:id="@+id/weightLoss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight Loss"
+        tools:layout_editor_absoluteX="145dp"
+        tools:layout_editor_absoluteY="176dp"
+        tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        android:id="@+id/weightGain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weight Gain"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="294dp"
+        tools:ignore="MissingConstraints" />
+
+    <CheckBox
+        android:id="@+id/massGain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mass Gain"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="398dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/proceedBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proceed"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="637dp"
+        tools:ignore="MissingConstraints"
+        android:onClick="proceedBtnClick"/>
+</LinearLayout>
