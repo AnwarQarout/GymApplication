@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/containerStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WeightLossActivity">
@@ -10,16 +11,16 @@
         android:id="@+id/fragment_container_WL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_navigation_WL"
-        />
+        android:layout_above="@id/bottom_navigation_WL" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_WL"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
+        style="@style/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom_menu_nutrition_workouts_wl"
-        app:itemIconTint="@color/purple_500"
-        app:itemTextColor="@color/black" />
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        app:itemIconTint="@color/elementColor"
+        app:itemTextColor="@color/elementColor"
+        app:menu="@menu/bottom_menu_nutrition_workouts_wl" />
 </RelativeLayout>

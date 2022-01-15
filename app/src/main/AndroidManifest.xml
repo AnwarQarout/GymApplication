@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.gymapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -7,50 +8,65 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="GymApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GymApplication"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".WeightGainWorkoutActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Your Weight Gain Workouts"/>
         <activity
             android:name=".MassGainWorkoutActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Your Mass Gain Workouts"/>
         <activity
             android:name=".WeightLossWorkoutActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Your Weight Loss Workouts"/>
         <activity
             android:name=".MassGainNutritionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Your Mass Gain Meals"/>
         <activity
             android:name=".WeightGainNutritionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Your Weight Gain Meals"/>
         <activity
             android:name=".WeightLossNutritionActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Your Weight Loss Meals"/>
         <activity
             android:name=".WeightLossActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Weight Loss"/>
         <activity
             android:name=".WeightGainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Weight Gain"/>
         <activity
             android:name=".WeightLossActivity"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="DuplicateActivity"
+            android:label="Weight Loss"/>
         <activity
             android:name=".MassGainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Mass Gain"/>
         <activity
             android:name=".UserChoice"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Choose A Membership"/>
         <activity
             android:name=".userActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="GymApplication User"/>
         <activity
             android:name=".loginActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="Login"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -59,7 +75,8 @@
         </activity>
         <activity
             android:name=".UpdateUserInfoActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Update Your Info"/>
     </application>
 
 </manifest>

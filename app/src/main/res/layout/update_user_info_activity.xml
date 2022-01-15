@@ -2,65 +2,79 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/containerStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateUserInfoActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".UpdateUserInfoActivity">
 
     <EditText
+        android:layout_marginTop="10dp"
         android:id="@+id/UsernameET"
-        android:layout_width="wrap_content"
+        style="@style/editTextStyle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="username"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="70dp" />
+        android:text="@string/usernameET"
+        />
 
     <EditText
+        android:layout_marginTop="10dp"
         android:id="@+id/PasswordET"
+        style="@style/editTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Password" />
+        android:text="@string/passwordET" />
 
     <EditText
+        android:layout_marginTop="10dp"
         android:id="@+id/NameET"
+        style="@style/editTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:text="@string/nameET" />
 
     <EditText
+        android:layout_marginTop="10dp"
         android:id="@+id/PhoneET"
+        style="@style/editTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Phone" />
+        android:text="@string/phoneET" />
 
     <EditText
+        android:layout_marginTop="10dp"
         android:id="@+id/HeightET"
+        style="@style/editTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="height" />
+        android:text="@string/heightET" />
 
     <EditText
+        android:layout_marginTop="10dp"
         android:id="@+id/WeightET"
+        style="@style/editTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="weight" />
+        android:text="@string/weightET" />
 
     <Button
         android:id="@+id/applyBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Apply Changes"
-        android:onClick="applyBtnClick"/>
+        android:onClick="applyBtnClick"
+        android:text="@string/apply_changes"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginTop="200dp"/>
 </LinearLayout>

@@ -2,44 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/containerStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".UserChoice">
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/editTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_your_memberships"
+        android:gravity="center_horizontal"
+        android:textFontWeight="1000"
+        android:textSize="20dp"
+        />
 
     <CheckBox
         android:id="@+id/weightLoss"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Weight Loss"
+        android:text="@string/weight_loss"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="145dp"
         tools:layout_editor_absoluteY="176dp"
-        tools:ignore="MissingConstraints" />
+        style="@style/checkBoxStyle" />
 
     <CheckBox
         android:id="@+id/weightGain"
+        style="@style/checkBoxStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Weight Gain"
+        android:text="@string/weight_gain"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="294dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="294dp" />
 
     <CheckBox
         android:id="@+id/massGain"
+        style="@style/checkBoxStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mass Gain"
+        android:text="@string/mass_gain"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="398dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="398dp" />
 
     <Button
         android:id="@+id/proceedBtn"
+        style="@style/buttonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Proceed"
+        android:onClick="proceedBtnClick"
+        android:text="@string/proceed"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="637dp"
-        tools:ignore="MissingConstraints"
-        android:onClick="proceedBtnClick"/>
+        android:layout_marginTop="50dp"/>
 </LinearLayout>

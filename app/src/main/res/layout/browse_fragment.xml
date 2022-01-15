@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/containerStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BrowseFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".BrowseFragment">
 
     <Button
         android:id="@+id/MassGainBt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mass Gain" />
+        android:text="@string/mass_gain"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"/>
 
     <Button
         android:id="@+id/weightGainBt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Weight Gain" />
+        android:text="@string/weight_gain"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/MassGainBt"
+        android:layout_marginTop="200dp"
+        />
 
     <Button
         android:id="@+id/weightLossBt"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Weight Loss" />
-</LinearLayout>
+        android:text="@string/weight_loss"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"/>
+</RelativeLayout>

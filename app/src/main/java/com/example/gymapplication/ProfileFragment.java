@@ -1,9 +1,11 @@
 package com.example.gymapplication;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 
@@ -156,7 +158,23 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity().getBaseContext(),android.R.layout.simple_list_item_1,list);
+        final ArrayAdapter<String> adapter = new ArrayAdapter(getActivity().getBaseContext(),android.R.layout.simple_list_item_1,list){
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent){
+                // Get the Item from ListView
+                View view = super.getView(position, convertView, parent);
+
+                // Initialize a TextView for ListView each Item
+                TextView tv = (TextView) view.findViewById(android.R.id.text1);
+
+                // Set the text color of TextView (ListView Item)
+                tv.setTextColor(Color.WHITE);
+
+                // Generate ListView Item using TextView
+                return view;
+            }
+        };
         ListView listView = Objects.requireNonNull(getView()).findViewById(R.id.preferenceListView);
         listView.setAdapter(adapter);
 
@@ -168,7 +186,6 @@ public class ProfileFragment extends Fragment {
         TextView weight = getView().findViewById(R.id.weightTV);
         TextView bmi = getView().findViewById(R.id.bmiTV);
         Button button = getView().findViewById(R.id.updateBtn);
-        ImageView image = getView().findViewById(R.id.personalImage);
 
 
 

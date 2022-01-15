@@ -19,6 +19,8 @@ public class UserChoice extends AppCompatActivity {
     CheckBox weightGain;
     CheckBox massGain;
     String username;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,27 @@ public class UserChoice extends AppCompatActivity {
         weightLoss = findViewById(R.id.weightLoss);
         weightGain = findViewById(R.id.weightGain);
         massGain = findViewById(R.id.massGain);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
+
+        if(sharedPreferences.contains("membershipPreferenceModel")) {
+            String membershipPreferenceModelString = sharedPreferences.getString("membershipPreferenceModel", "");
+            Gson gson = new Gson();
+            MembershipPreferenceModel membershipPreferenceModel = gson.fromJson(membershipPreferenceModelString, MembershipPreferenceModel.class);
+
+              if(membershipPreferenceModel.isWeightGain()){
+            weightGain.setChecked(true);
+            }
+            if(membershipPreferenceModel.isWeightLoss()){
+            weightLoss.setChecked(true);
+             }
+
+            if(membershipPreferenceModel.isMassGain()){
+            massGain.setChecked(true);
+            }
+        }
+
 
         Bundle extras = getIntent().getExtras();
         username = extras.getString("username");
@@ -46,9 +69,6 @@ public class UserChoice extends AppCompatActivity {
         if(massGain.isChecked()){
             membershipPreferenceModel.setMassGain(true);
         }
-
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         Gson gson = new Gson();
         String dataString = gson.toJson(membershipPreferenceModel);

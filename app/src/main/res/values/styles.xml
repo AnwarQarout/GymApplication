@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="editTextStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:selectAllOnFocus">true</item>
+        <item name="android:textColor">@color/elementColor</item>
+        <item name="android:textColorHint">@color/elementColor</item>
+        <item name="android:backgroundTint">@color/elementColor</item>
+    </style>
+
+    <style name="buttonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:textColor">@color/backgroundColor</item>
+        <item name="android:backgroundTint">@color/elementColor</item>
+    </style>
+
+    <style name="containerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/backgroundColor</item>
+    </style>
+
+    <style name="checkBoxStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:layout_marginBottom">30dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/elementColor</item>
+        <item name="android:backgroundTint">@color/elementColor</item>
+    </style>
+
+    <style name="bottomNavigation" parent="containerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_gravity">bottom</item>
+    </style>
+
+    <style name="textViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/elementColor</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="CalenderViewCustom" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/black</item>
+        <item name="colorPrimary">@color/elementColor</item>
+    </style>
+
+    <style name="CalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/elementColor</item>
+        <item name="android:weekNumberColor">@color/elementColor</item>
+    </style>
+
+    <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/elementColor</item>
+    </style>
+
+    <style name="calendarViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">100dp</item>
+        <item name="android:theme">@style/CalenderViewCustom</item>
+        <item name="android:dateTextAppearance">@style/CalenderViewDateCustomText</item>
+        <item name="android:weekDayTextAppearance">@style/CalenderViewWeekCustomText</item>
+    </style>
+</resources>

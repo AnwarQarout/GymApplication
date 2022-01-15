@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,19 +25,37 @@ import org.json.JSONArray;
 
 public class loginActivity extends AppCompatActivity {
 Context context;
+    EditText usernameET;
+    EditText passwordET;
+    Switch rememberMe;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 String ip = "192.168.1.19:80";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
+
+         usernameET = findViewById(R.id.username);
+         passwordET = findViewById(R.id.password);
+         rememberMe = findViewById(R.id.switch1);
+         rememberMe.setChecked(true);
+
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
+        if(sharedPreferences.contains("loginUsername")){
+            usernameET.setText(sharedPreferences.getString("loginUsername",""));
+            passwordET.setText(sharedPreferences.getString("loginPassword",""));
+        }
+
         context = this;
     }
 
 
     /* Method that uses Volley to send a GET request to a web service for login. */
     public void loginBtnClick(View view) {
-        EditText usernameET = findViewById(R.id.username);
-        EditText passwordET = findViewById(R.id.password);
+
 
         String enteredUsername = usernameET.getText().toString();
         String enteredPassword = passwordET.getText().toString();
@@ -44,6 +63,16 @@ String ip = "192.168.1.19:80";
         String URL = "http://"+ip+"/gymproject/login.php?enteredUsername=" + enteredUsername + "&enteredPassword=" + enteredPassword;
 
         final String[] isAuthenticated = new String[1];
+        if(rememberMe.isChecked()){
+            editor.putString("loginUsername",enteredUsername);
+            editor.putString("loginPassword",enteredPassword);
+            editor.apply();
+        }
+        else {
+            editor.remove("loginUsername");
+            editor.remove("loginPassword");
+            editor.apply();
+        }
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL,

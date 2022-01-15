@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,81 +8,139 @@
     tools:context=".BrowseFragment"
     android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/personalImage"
+    <TextView
+        android:id="@+id/usernameTVText"
+        style="@style/textViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:src="@tools:sample/avatars"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        />
+        android:layout_alignParentTop="true"
+        android:text="@string/your_username" />
 
     <TextView
         android:id="@+id/usernameTV"
+        android:layout_alignParentEnd="true"
+        android:text="@string/username"
+        android:textStyle="bold"
+        style="@style/textViewStyle" />
+
+    <TextView
+        android:id="@+id/passwordTVText"
+        style="@style/textViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        />
+        android:layout_below="@+id/usernameTVText"
+        android:text="@string/your_password" />
 
     <TextView
         android:id="@+id/passwordTV"
+        style="@style/textViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="passwordTV"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        />
+        android:layout_below="@id/usernameTV"
+        android:layout_alignParentEnd="true"
+        android:text="@string/passwordtv"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/nameTVText"
+        style="@style/textViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordTVText"
+        android:text="@string/your_name" />
 
     <TextView
         android:id="@+id/nameTV"
+        style="@style/textViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="nameTV"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        />
+        android:layout_below="@id/passwordTV"
+        android:layout_alignParentEnd="true"
+        android:text="@string/nametv"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/phoneTVText"
+        style="@style/textViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameTVText"
+        android:text="@string/your_phone_number" />
 
     <TextView
         android:id="@+id/phoneTV"
+        style="@style/textViewStyle"
+        android:layout_below="@id/nameTV"
+        android:layout_alignParentEnd="true"
+        android:text="@string/phonetv"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/heightTVText"
+        style="@style/textViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="phoneTV"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        />
+        android:layout_below="@+id/phoneTVText"
+        android:text="@string/your_height" />
 
     <TextView
         android:id="@+id/heightTV"
+        style="@style/textViewStyle"
+        android:layout_below="@id/phoneTV"
+        android:layout_alignParentEnd="true"
+        android:text="@string/heighttv"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/weightTVText"
+        style="@style/textViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="heightTV"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        />
+        android:layout_below="@id/heightTVText"
+        android:text="@string/your_weight" />
 
     <TextView
         android:id="@+id/weightTV"
+        style="@style/textViewStyle"
+        android:layout_below="@id/heightTV"
+        android:layout_alignParentEnd="true"
+        android:text="@string/weighttv"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/bmiTVText"
+        style="@style/textViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="weightTV"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        />
+        android:layout_below="@id/weightTVText"
+        android:text="@string/your_bmi_auto_calculated" />
 
     <TextView
         android:id="@+id/bmiTV"
+        style="@style/textViewStyle"
+        android:layout_below="@+id/weightTV"
+        android:layout_alignParentEnd="true"
+        android:text="@string/bmitv"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/membershipsTVText"
+        style="@style/textViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="bmiTV"
-        android:textSize="30sp"
-        android:textStyle="bold"/>
+        android:layout_below="@id/bmiTV"
+        android:layout_centerHorizontal="true"
+        android:text="@string/your_memberships"
+        android:layout_marginTop="50dp"/>
 
     <ListView
         android:id="@+id/preferenceListView"
         android:layout_width="match_parent"
-        android:layout_height="196dp" >
+        android:layout_height="196dp"
+        android:layout_below="@id/membershipsTVText"
+        android:textAlignment="center"
+        android:contextClickable="false"
+        >
 
     </ListView>
 
@@ -90,7 +148,10 @@
         android:id="@+id/updateBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update Settings" />
+        android:text="@string/update_settings"
+        android:layout_below="@id/preferenceListView"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
 
 
-</LinearLayout>
+</RelativeLayout>

@@ -8,7 +8,7 @@
     <!-- TODO: Update blank fragment layout -->
     <CalendarView
         android:id="@+id/calendarViewWorkoutWG"
-        android:layout_width="wrap_content"
-        android:layout_height="458dp" />
+        style="@style/calendarViewStyle"
+         />
 
 </FrameLayout>
