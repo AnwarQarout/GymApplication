@@ -21,22 +21,24 @@
 		
 		$sql = "select * from manager where user_name = '" . $enteredUsername . "' AND password = '". $enteredPassword . "'" ;
 		$result = $conn->query($sql);
+		
 		if ($result->num_rows > 0){
-			echo "manager";
+			echo "manager:".$row["id"];
 			return true;
 		}
 		
 		$sql = "select * from employee where user_name = '" . $enteredUsername . "' AND password = '". $enteredPassword . "'" ;
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0){
-			echo "employee";
+			echo "employee:".$row["id"];
 			return true;
 		}
 		
 		$sql = "select * from member where user_name = '" . $enteredUsername . "' AND password = '". $enteredPassword . "'" ;
 		$result = $conn->query($sql);
+		$row = $result->fetch_array(MYSQLI_ASSOC);
 		if ($result->num_rows > 0){
-			echo "user";
+			echo "user:".$row["id"];
 			return true;
 		}
 		
