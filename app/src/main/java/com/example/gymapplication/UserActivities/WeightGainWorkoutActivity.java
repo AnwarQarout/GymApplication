@@ -1,4 +1,4 @@
-package com.example.gymapplication;
+package com.example.gymapplication.UserActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 
 import com.example.gymapplication.Models.CaptionedAdapterNutritionWL;
+import com.example.gymapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 

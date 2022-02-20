@@ -1,4 +1,4 @@
-package com.example.gymapplication;
+package com.example.gymapplication.UserActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,18 +9,19 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 
 import com.example.gymapplication.Models.CaptionedAdapterNutritionWL;
+import com.example.gymapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class WeightLossWorkoutActivity extends AppCompatActivity {
+public class MassGainNutritionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.weight_loss_workout_activity);
+        setContentView(R.layout.mass_gain_nutrition_activity);
 
         String identifier = getIntent().getExtras().get("identifier").toString();
 
@@ -42,10 +43,22 @@ public class WeightLossWorkoutActivity extends AppCompatActivity {
             System.out.println("----------------");
             System.out.println(tempList.get(i));
             JsonObject jsonObject = gson.fromJson(tempList.get(i),JsonObject.class);
-                names[i] = jsonObject.get("name").toString().replaceAll("\"", "");
-                types[i] = jsonObject.get("steps").toString().replaceAll("\"", "");
-                urls[i] = jsonObject.get("video").toString().replaceAll("\"", "");
+            if(jsonObject.get("type").toString().replaceAll("\"","").equals("breakfast")) {
+                names[0] = jsonObject.get("name").toString().replaceAll("\"", "");
+                types[0] = jsonObject.get("type").toString().replaceAll("\"", "");
+                urls[0] = jsonObject.get("image").toString().replaceAll("\"", "");
+            }
+            else if(jsonObject.get("type").toString().replaceAll("\"","").equals("lunch")) {
+                names[1] = jsonObject.get("name").toString().replaceAll("\"", "");
+                types[1] = jsonObject.get("type").toString().replaceAll("\"", "");
+                urls[1] = jsonObject.get("image").toString().replaceAll("\"", "");
+            }
 
+            else if(jsonObject.get("type").toString().replaceAll("\"","").equals("dinner")) {
+                names[2] = jsonObject.get("name").toString().replaceAll("\"", "");
+                types[2] = jsonObject.get("type").toString().replaceAll("\"", "");
+                urls[2] = jsonObject.get("image").toString().replaceAll("\"", "");
+            }
 
           /*  NutritionModel nutritionModel = new NutritionModel(jsonObject.get("name").toString().replaceAll("\"",""),jsonObject.get("type").toString().replaceAll("\"",""));
             System.out.println(nutritionModel.getName() + nutritionModel.getType());*/
@@ -54,11 +67,10 @@ public class WeightLossWorkoutActivity extends AppCompatActivity {
 
             // nutritionList.add(new NutritionModel(jsonObject.get("name").toString(),jsonObject.get("type").toString()));
         }
-        RecyclerView recyclerView = findViewById(R.id.workoutRecyclerWL);
+        RecyclerView recyclerView = findViewById(R.id.nutritionRecyclerMG);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         CaptionedAdapterNutritionWL adapter = new CaptionedAdapterNutritionWL(names,types,urls);
         recyclerView.setAdapter(adapter);
 
-
     }
-}
+    }

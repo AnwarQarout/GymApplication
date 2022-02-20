@@ -1,4 +1,4 @@
-package com.example.gymapplication;
+package com.example.gymapplication.UserActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,12 +16,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.shadow.ShadowRenderer;
-
-import org.json.JSONArray;
+import com.example.gymapplication.R;
 
 public class loginActivity extends AppCompatActivity {
 Context context;
@@ -30,7 +27,7 @@ Context context;
     Switch rememberMe;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-String ip = "192.168.1.19:80";
+String ip = "10.0.2.2:80";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,23 +79,33 @@ String ip = "192.168.1.19:80";
                         /* start manager interface */
                         System.out.println(response);
                         System.out.println("-----------------------------");
-                        if(response.toString().equals("manager")) {
-                            Intent intent = new Intent(getApplicationContext(), userActivity.class);
+                        if(response.contains("manager")) {
+                            System.out.println(response + "------------------------------ssss----------");
+                            String[] split = response.toString().split(":");
+                            int id = Integer.parseInt(split[1]);
+                            System.out.println(id);
+                            Intent intent = new Intent(getApplicationContext(), UserChoice.class); //ManagerHomeActivity
+                            intent.putExtra("id",id);
                             intent.putExtra("username",enteredUsername);
                             intent.putExtra("password",enteredPassword);
                             startActivity(intent);
                         }
 
                         /* start employee interface */
-                        else if(response.equals("employee")) {
-                            Intent intent = new Intent(getApplicationContext(), userActivity.class);
+                        else if(response.contains("employee")) {
+                            System.out.println(response + "------------------------------ssss----------");
+                            String[] split = response.toString().split(":");
+                            int id = Integer.parseInt(split[1]);
+                            System.out.println(id);
+                            Intent intent = new Intent(getApplicationContext(), UserChoice.class); //EmployeeHomeActivity
+                            intent.putExtra("id",id);
                             intent.putExtra("username",enteredUsername);
                             intent.putExtra("password",enteredPassword);
                             startActivity(intent);
                         }
 
                         /* start user interface */
-                        else if(response.equals("user")) {
+                        else if(response.contains("user")) {
                             Intent intent = new Intent(getApplicationContext(), UserChoice.class);
                             intent.putExtra("username",enteredUsername);
                             intent.putExtra("password",enteredPassword);

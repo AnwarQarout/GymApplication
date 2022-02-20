@@ -1,28 +1,27 @@
-package com.example.gymapplication;
+package com.example.gymapplication.UserActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
+import com.example.gymapplication.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class WeightLossActivity extends AppCompatActivity {
-    WeightLossNutritionFragment weightLossNutritionFragment;
+public class MassGainActivity extends AppCompatActivity {
+    MassGainNutritionFragment massGainNutritionFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.weight_loss_activity);
+        setContentView(R.layout.mass_gain_activity);
 
-        weightLossNutritionFragment = WeightLossNutritionFragment.newInstance("","");
+        massGainNutritionFragment = MassGainNutritionFragment.newInstance("","");
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_WL);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_MG);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_WL, new WeightLossNutritionFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_MG, new MassGainNutritionFragment()).commit();
 
 
     }
@@ -40,18 +39,18 @@ public class WeightLossActivity extends AppCompatActivity {
             // by using there id.
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
-                case R.id.nutritionWL:
-                    selectedFragment = new WeightLossNutritionFragment();
+                case R.id.nutritionMG:
+                    selectedFragment = new MassGainNutritionFragment();
                     break;
-                case R.id.workoutsWL:
-                    selectedFragment = new WeightLossWorkoutFragment();
+                case R.id.workoutsMG:
+                    selectedFragment = new MassGainWorkoutFragment();
                     break;
             }
             // It will help to replace the
             // one fragment to other.
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container_WL, selectedFragment)
+                    .replace(R.id.fragment_container_MG, selectedFragment)
                     .commit();
             return true;
         }

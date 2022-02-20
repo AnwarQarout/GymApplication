@@ -1,28 +1,27 @@
-package com.example.gymapplication;
+package com.example.gymapplication.UserActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
+import com.example.gymapplication.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class userActivity extends AppCompatActivity {
-    ProfileFragment profileFragment;
+public class WeightGainActivity extends AppCompatActivity {
+    WeightGainNutritionFragment weightGainNutritionFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_activity);
+        setContentView(R.layout.weight_gain_activity);
 
-        profileFragment = ProfileFragment.newInstance("","");
+        weightGainNutritionFragment = WeightGainNutritionFragment.newInstance("","");
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_WG);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container_WG, new WeightGainNutritionFragment()).commit();
 
 
     }
@@ -40,18 +39,18 @@ public class userActivity extends AppCompatActivity {
             // by using there id.
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
-                case R.id.browse:
-                    selectedFragment = new BrowseFragment();
+                case R.id.nutritionWG:
+                    selectedFragment = new WeightGainNutritionFragment();
                     break;
-                case R.id.profile:
-                    selectedFragment = new ProfileFragment();
+                case R.id.workoutsWG:
+                    selectedFragment = new WeightGainWorkoutFragment();
                     break;
             }
             // It will help to replace the
             // one fragment to other.
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container, selectedFragment)
+                    .replace(R.id.fragment_container_WG, selectedFragment)
                     .commit();
             return true;
         }

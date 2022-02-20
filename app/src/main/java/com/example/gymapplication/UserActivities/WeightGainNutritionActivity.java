@@ -1,4 +1,4 @@
-package com.example.gymapplication;
+package com.example.gymapplication.UserActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,21 +9,19 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 
 import com.example.gymapplication.Models.CaptionedAdapterNutritionWL;
-import com.example.gymapplication.Models.NutritionModel;
+import com.example.gymapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 
-public class WeightLossNutritionActivity extends AppCompatActivity {
-    ArrayList<NutritionModel> nutritionList = new ArrayList<>();
+public class WeightGainNutritionActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.weight_loss_nutrition_activity);
+        setContentView(R.layout.weight_gain_nutrition_activity);
 
         String identifier = getIntent().getExtras().get("identifier").toString();
 
@@ -69,14 +67,10 @@ public class WeightLossNutritionActivity extends AppCompatActivity {
 
             // nutritionList.add(new NutritionModel(jsonObject.get("name").toString(),jsonObject.get("type").toString()));
         }
-       RecyclerView recyclerView = findViewById(R.id.nutritionRecyclerWL);
+        RecyclerView recyclerView = findViewById(R.id.nutritionRecyclerWL);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         CaptionedAdapterNutritionWL adapter = new CaptionedAdapterNutritionWL(names,types,urls);
         recyclerView.setAdapter(adapter);
-
-       /*for(int i=0; i<nutritionList.size();++i){
-            System.out.println(nutritionList.get(i).getName());
-        }*/
 
     }
 }

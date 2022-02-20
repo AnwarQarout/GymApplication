@@ -9,4 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="backgroundColor">#0f172a</color>
     <color name="elementColor">#94a3b8</color>
+    <color name="colorPrimary">#212121</color>                                      <!--actionBarColor-->
+    <color name="colorPrimaryVariant">#000000</color>                               <!---->
+    <color name="colorButton">#10ffffff</color>
 </resources>

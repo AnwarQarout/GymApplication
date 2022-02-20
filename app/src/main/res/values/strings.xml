@@ -36,7 +36,4 @@
     <string name="heightET">height</string>
     <string name="weightET">weight</string>
     <string name="apply_changes">Apply Changes</string>
-    <string name="mass_gain">Mass Gain</string>
-    <string name="weight_gain">Weight Gain</string>
-    <string name="weight_loss">Weight Loss</string>
 </resources>

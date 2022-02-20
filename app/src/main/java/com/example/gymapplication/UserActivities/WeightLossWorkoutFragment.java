@@ -1,4 +1,4 @@
-package com.example.gymapplication;
+package com.example.gymapplication.UserActivities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,10 +20,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.gymapplication.Models.MembershipPreferenceModel;
-import com.example.gymapplication.Models.NutritionModel;
+import com.example.gymapplication.R;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,8 +35,8 @@ import java.util.HashSet;
  * Use the {@link WeightLossNutritionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class WeightLossNutritionFragment extends Fragment {
-    String ip = "192.168.1.19:80";
+public class WeightLossWorkoutFragment extends Fragment {
+    String ip = "10.0.2.2:80";
     String selectedMembership;
     ArrayList<String> nutritionList;
     HashSet<String> hashSet = new HashSet<>();
@@ -51,7 +49,7 @@ public class WeightLossNutritionFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public WeightLossNutritionFragment() {
+    public WeightLossWorkoutFragment() {
         // Required empty public constructor
     }
 
@@ -87,23 +85,23 @@ public class WeightLossNutritionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.weight_loss_nutrition_fragment, container, false);
+        return inflater.inflate(R.layout.weight_loss_workout_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        CalendarView calendarView = getView().findViewById(R.id.calendarViewNutritionWL);
+        CalendarView calendarView = getView().findViewById(R.id.calendarViewWorkoutWL);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
                 hashSet.clear();
-                Intent intent = new Intent(getActivity().getBaseContext(),WeightLossNutritionActivity.class);
+                Intent intent = new Intent(getActivity().getBaseContext(),WeightLossWorkoutActivity.class);
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                String identifier = String.valueOf(year) + String.valueOf(month) + String.valueOf(dayOfMonth) + "WL";
+                String identifier = String.valueOf(year) + String.valueOf(month) + String.valueOf(dayOfMonth) + "WL-Workout";
                 System.out.println(identifier);
                 boolean isExist = sharedPreferences.contains(identifier);
 
@@ -121,7 +119,7 @@ public class WeightLossNutritionFragment extends Fragment {
 
                 if(isExist == false){
                     System.out.println("this day wasnt previously visited");
-                    sendRequestAndGetNutrition();
+                    sendRequestAndGetWorkouts();
 
                     Runnable r = new Runnable() {
                         @Override
@@ -154,8 +152,8 @@ public class WeightLossNutritionFragment extends Fragment {
         });
     }
 
-    public void sendRequestAndGetNutrition(){
-        String URL = "http://"+ip+"/gymproject/getNutrition.php?selectedMembership=" + selectedMembership;
+    public void sendRequestAndGetWorkouts(){
+        String URL = "http://"+ip+"/gymproject/getWorkouts.php?selectedMembership=" + selectedMembership;
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity().getBaseContext());
         Gson gson = new Gson();
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, URL,
@@ -167,7 +165,7 @@ public class WeightLossNutritionFragment extends Fragment {
                         JSONObject obj = response.getJSONObject(i);
                         hashSet.add(obj.toString());
                         System.out.println("yooooooooooooooooooooooooooo");
-                      System.out.println(obj.toString());
+                        System.out.println(obj.toString());
 
                     } catch (JSONException exception) {
                         Log.d("Error", exception.toString());
@@ -186,5 +184,5 @@ public class WeightLossNutritionFragment extends Fragment {
 
         requestQueue.add(request);
     }
-    }
+}
 

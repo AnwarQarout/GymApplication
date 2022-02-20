@@ -1,4 +1,4 @@
-package com.example.gymapplication;
+package com.example.gymapplication.UserActivities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,10 +20,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.gymapplication.Models.MembershipPreferenceModel;
-import com.example.gymapplication.Models.NutritionModel;
+import com.example.gymapplication.R;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,8 +35,8 @@ import java.util.HashSet;
  * Use the {@link WeightLossNutritionFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MassGainWorkoutFragment extends Fragment {
-    String ip = "192.168.1.19:80";
+public class WeightGainWorkoutFragment extends Fragment {
+    String ip = "10.0.2.2:80";
     String selectedMembership;
     ArrayList<String> nutritionList;
     HashSet<String> hashSet = new HashSet<>();
@@ -51,7 +49,7 @@ public class MassGainWorkoutFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public MassGainWorkoutFragment() {
+    public WeightGainWorkoutFragment() {
         // Required empty public constructor
     }
 
@@ -64,8 +62,8 @@ public class MassGainWorkoutFragment extends Fragment {
      * @return A new instance of fragment WeightLossNutritionFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MassGainWorkoutFragment newInstance(String param1, String param2) {
-        MassGainWorkoutFragment fragment = new MassGainWorkoutFragment();
+    public static WeightGainWorkoutFragment newInstance(String param1, String param2) {
+        WeightGainWorkoutFragment fragment = new WeightGainWorkoutFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -87,20 +85,20 @@ public class MassGainWorkoutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.mass_gain_workout_fragment, container, false);
+        return inflater.inflate(R.layout.weight_gain_workout_fragment, container, false);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        CalendarView calendarView = getView().findViewById(R.id.calendarViewWorkoutMG);
+        CalendarView calendarView = getView().findViewById(R.id.calendarViewWorkoutWG);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
                 hashSet.clear();
-                Intent intent = new Intent(getActivity().getBaseContext(),MassGainWorkoutActivity.class);
+                Intent intent = new Intent(getActivity().getBaseContext(),WeightGainWorkoutActivity.class);
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 String identifier = String.valueOf(year) + String.valueOf(month) + String.valueOf(dayOfMonth) + "WL-Workout";

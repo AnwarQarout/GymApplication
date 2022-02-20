@@ -1,17 +1,13 @@
-package com.example.gymapplication;
+package com.example.gymapplication.UserActivities;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -21,10 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -34,6 +28,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gymapplication.Models.MemberModel;
 import com.example.gymapplication.Models.MembershipPreferenceModel;
+import com.example.gymapplication.R;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -53,7 +48,7 @@ public class ProfileFragment extends Fragment {
 
     List<String> list;
     String username;
-    String ip = "192.168.1.19:80";
+    String ip = "10.0.2.2:80";
     /* String password;
      String name;
      String phone;

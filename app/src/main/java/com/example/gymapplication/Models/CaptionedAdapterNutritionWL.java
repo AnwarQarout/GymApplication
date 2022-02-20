@@ -1,6 +1,5 @@
 package com.example.gymapplication.Models;
 
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,12 +7,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.gymapplication.R;
-import com.example.gymapplication.WeightLossNutritionActivity;
 
 public class CaptionedAdapterNutritionWL extends RecyclerView.Adapter<CaptionedAdapterNutritionWL.ViewHolder>{
 

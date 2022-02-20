@@ -14,56 +14,56 @@
         android:theme="@style/Theme.GymApplication"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".WeightGainWorkoutActivity"
+            android:name=".UserActivities.WeightGainWorkoutActivity"
             android:exported="false"
             android:label="Your Weight Gain Workouts"/>
         <activity
-            android:name=".MassGainWorkoutActivity"
+            android:name=".UserActivities.MassGainWorkoutActivity"
             android:exported="false"
             android:label="Your Mass Gain Workouts"/>
         <activity
-            android:name=".WeightLossWorkoutActivity"
+            android:name=".UserActivities.WeightLossWorkoutActivity"
             android:exported="false"
             android:label="Your Weight Loss Workouts"/>
         <activity
-            android:name=".MassGainNutritionActivity"
+            android:name=".UserActivities.MassGainNutritionActivity"
             android:exported="false"
             android:label="Your Mass Gain Meals"/>
         <activity
-            android:name=".WeightGainNutritionActivity"
+            android:name=".UserActivities.WeightGainNutritionActivity"
             android:exported="false"
             android:label="Your Weight Gain Meals"/>
         <activity
-            android:name=".WeightLossNutritionActivity"
+            android:name=".UserActivities.WeightLossNutritionActivity"
             android:exported="false"
             android:label="Your Weight Loss Meals"/>
         <activity
-            android:name=".WeightLossActivity"
+            android:name=".UserActivities.WeightLossActivity"
             android:exported="false"
             android:label="Weight Loss"/>
         <activity
-            android:name=".WeightGainActivity"
+            android:name=".UserActivities.WeightGainActivity"
             android:exported="false"
             android:label="Weight Gain"/>
         <activity
-            android:name=".WeightLossActivity"
+            android:name=".UserActivities.WeightLossActivity"
             android:exported="false"
             tools:ignore="DuplicateActivity"
             android:label="Weight Loss"/>
         <activity
-            android:name=".MassGainActivity"
+            android:name=".UserActivities.MassGainActivity"
             android:exported="false"
             android:label="Mass Gain"/>
         <activity
-            android:name=".UserChoice"
+            android:name=".UserActivities.UserChoice"
             android:exported="false"
             android:label="Choose A Membership"/>
         <activity
-            android:name=".userActivity"
+            android:name=".UserActivities.userActivity"
             android:exported="false"
             android:label="GymApplication User"/>
         <activity
-            android:name=".loginActivity"
+            android:name=".UserActivities.loginActivity"
             android:exported="true"
             android:label="Login"
             >
@@ -74,7 +74,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UpdateUserInfoActivity"
+            android:name=".UserActivities.UpdateUserInfoActivity"
             android:exported="false"
             android:label="Update Your Info"/>
     </application>

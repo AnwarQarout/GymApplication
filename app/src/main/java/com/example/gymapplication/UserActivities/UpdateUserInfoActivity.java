@@ -1,8 +1,7 @@
-package com.example.gymapplication;
+package com.example.gymapplication.UserActivities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -17,8 +16,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.gymapplication.Models.MembershipPreferenceModel;
-import com.google.gson.Gson;
+import com.example.gymapplication.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +30,7 @@ public class UpdateUserInfoActivity extends AppCompatActivity {
     EditText weight;
     Button apply;
 
-    String ip = "192.168.1.19:80";
+    String ip = "10.0.2.2:80";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
